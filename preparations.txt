@@ -1,0 +1,26 @@
+- Instalacja node
+z instalatora pobranego z https://nodejs.org/en/download/
+
+- Zainicjowanie npm w projekcie
+npm init
+
+- Instalacja globalna bower:
+npm install -g bower
+
+- Instalacja globalna tsd:
+npm isntall -g tsd
+
+- Zainicjowanie bowera w projekcie
+bower init
+
+- Zainicjowanie tsd w projekcie
+tsd init
+
+
+- instalacja qunit:
+bower install -qunit --save-dev
+tsd install qunit --save
+
+- dodanie referencji do pliku nagłówkowego qunit:
+/// <reference path="../typings/qunit/qunit.d.ts" />
+

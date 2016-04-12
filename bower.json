@@ -1,0 +1,6 @@
+{
+  "name": "TDDjavaScript",
+  "devDependencies": {
+    "qunit": "^1.23.0"
+  }
+}
