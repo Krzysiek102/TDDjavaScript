@@ -1,3 +1,0 @@
-function compareTeamResults (firstTeamResults, secondTeamResults){
-    
-}
