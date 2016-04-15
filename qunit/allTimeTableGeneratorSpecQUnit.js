@@ -1,5 +1,7 @@
 /// <reference path="../typings/qunit/qunit.d.ts" />
 
+'use strict';
+
 var pointsCalculator;
 
 module('Points calculator', {
@@ -81,4 +83,27 @@ test('0:4 in season 1960/1961 should give 0 point', function  (){
 test('0:4 in season 1990/1991 should give 0 point', function  (){
     var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1990, 0, 4);
     strictEqual(totalAmountOfPoints, 0);    
+});
+
+var pointsCalculatorValidator;
+
+module('Points calculator validator', {
+    setup: function  (){
+        pointsCalculatorValidator = new PointsCalculatorValidator();    
+    },
+});
+
+test('result before year 1925 should be not valid', function  (){
+    var isValid = pointsCalculatorValidator.IsValid(1924, 1, 0);
+    notOk(isValid);
+});
+
+test('result with negative number of goals scored is not valid', function  (){
+    var isValid = pointsCalculatorValidator.IsValid(1990, -1, 0);
+    notOk(isValid);
+});
+
+test('result with negative number of goals lost is not valid', function  (){
+    var isValid = pointsCalculatorValidator.IsValid(1990, 1, -1);
+    notOk(isValid);
 });
