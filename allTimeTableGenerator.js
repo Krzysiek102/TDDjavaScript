@@ -32,6 +32,14 @@ PointsCalculator.prototype.GetPointsForTheGame = function(seasonStartYear, goals
         }else {//goalsScored<goalsLost && goalsScored+3>goalsLost
             return this.POINTS_FOR_DEFEAT;
         }
+    }else if ((seasonStartYear>=1927 && seasonStartYear<1986) || (seasonStartYear>=1990 && seasonStartYear<=1994)) {
+        if (goalsScored> goalsLost){
+            return this.POINTS_FOR_WIN_OLD;
+        }else if (goalsScored === goalsLost){
+            return this.POINTS_FOR_DRAW;
+        }else {//goalsScored<goalsLost
+            return this.POINTS_FOR_DEFEAT;
+        }
     }
     
     throw "Not implemented";

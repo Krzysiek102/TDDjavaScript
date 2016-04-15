@@ -47,3 +47,38 @@ test('0:3 in season 1986/1987 should give -1 points', function  (){
     var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1986, 0, 3);
     strictEqual(totalAmountOfPoints, -1);    
 });
+
+test('0:3 in season 1986/1987 should give -1 points', function  (){
+    var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1986, 0, 3);
+    strictEqual(totalAmountOfPoints, -1);    
+});
+
+test('4:0 in season 1960/1961 should give 2 points', function  (){
+    var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1960, 4, 0);
+    strictEqual(totalAmountOfPoints, 2);    
+});
+
+test('4:0 in season 1990/1991 should give 2 points', function  (){
+    var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1990, 4, 0);
+    strictEqual(totalAmountOfPoints, 2);    
+});
+
+test('1:1 in season 1960/1961 should give 1 point', function  (){
+    var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1960, 1, 1);
+    strictEqual(totalAmountOfPoints, 1);    
+});
+
+test('1:1 in season 1990/1991 should give 1 point', function  (){
+    var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1990, 1, 1);
+    strictEqual(totalAmountOfPoints, 1);    
+});
+
+test('0:4 in season 1960/1961 should give 0 point', function  (){
+    var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1960, 0, 4);
+    strictEqual(totalAmountOfPoints, 0);    
+});
+
+test('0:4 in season 1990/1991 should give 0 point', function  (){
+    var totalAmountOfPoints = pointsCalculator.GetPointsForTheGame(1990, 0, 4);
+    strictEqual(totalAmountOfPoints, 0);    
+});
