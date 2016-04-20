@@ -1,62 +1,44 @@
 'use strict';
 
-function PointsCalculatorValidator(){
+function OldPointsCalculator(){
     
 };
+OldPointsCalculator.prototype.GetPointsForResult = function  (goalsScored, goalsLost){
+    if (goalsScored > goalsLost){
+        return 2;
+    }else if (goalsScored === goalsLost){
+        return 1;
+    }else {//if (goalsScored<goalsLost)
+        return 0;
+    }
+}
 
-PointsCalculatorValidator.prototype.IsValid = function IsValid(seasonStartYear, goalsScored, goalsLost){
-    if (seasonStartYear < 1925){
-        return false;
+function NewPointsCalculator (){
+    
+}
+NewPointsCalculator.prototype.GetPointsForResult = function  (goalsScored, goalsLost){
+    if (goalsScored>goalsLost){
+        return 3;
     }
-    if (goalsScored < 0 || goalsLost < 0){
-        return false;
-    }
-    return true;
-};
+    if (goalsScored === goalsLost){
+        return 1;
+    }else {//if (goalsScored<goalsLost)
+        return 0;
+    }    
+}
 
 function PointsCalculator(){
-    
+    this.newPointsCalculator = new NewPointsCalculator();
+    this.oldPointsCalculator = new OldPointsCalculator();
 };
-PointsCalculator.prototype.POINTS_FOR_DEFEAT = 0;
-PointsCalculator.prototype.POINTS_FOR_DRAW = 1;
-PointsCalculator.prototype.POINTS_FOR_WIN_OLD = 2;
-PointsCalculator.prototype.POINTS_FOR_WIN_NEW = 3;
-PointsCalculator.prototype.POINTS_FOR_DECISIVE_WIN_OLD = 3;
-PointsCalculator.prototype.POINTS_FOR_DECISIVE_DEFEAT_OLD = -1;
 
-PointsCalculator.prototype.GetPointsForTheGame = function(seasonStartYear, goalsScored, goalsLost){    
-    if (seasonStartYear >=1995)
+PointsCalculator.prototype.GetPointsForResult = function(seasonStartYear, goalsScored, goalsLost){    
+    var pointsCalculator;
+    if (seasonStartYear >=1996)
     {
-        if (goalsScored>goalsLost){
-            return this.POINTS_FOR_WIN_NEW;
-        }
-        if (goalsScored === goalsLost){
-            return this.POINTS_FOR_DRAW;
-        }else {//if (goalsScored<goalsLost)
-            return this.POINTS_FOR_DEFEAT;
-        }
-    }else if (seasonStartYear>=1986 && seasonStartYear <=1989){
-        if (goalsScored>=goalsLost+3){
-            return this.POINTS_FOR_DECISIVE_WIN_OLD;
-        } else if (goalsScored>goalsLost){
-            return this.POINTS_FOR_WIN_OLD;
-        }else if (goalsScored === goalsLost){
-            return this.POINTS_FOR_DRAW;
-        }
-        else if (goalsScored+3 <= goalsLost){
-            return this.POINTS_FOR_DECISIVE_DEFEAT_OLD;
-        }else {// if (goalsScored<goalsLost && goalsScored+3>goalsLost)
-            return this.POINTS_FOR_DEFEAT;
-        }
-    }else if ((seasonStartYear>=1927 && seasonStartYear<1986) || (seasonStartYear>=1990 && seasonStartYear<=1994)) {
-        if (goalsScored> goalsLost){
-            return this.POINTS_FOR_WIN_OLD;
-        }else if (goalsScored === goalsLost){
-            return this.POINTS_FOR_DRAW;
-        }else {//if (goalsScored<goalsLost)
-            return this.POINTS_FOR_DEFEAT;
-        }
+        pointsCalculator = this.newPointsCalculator; 
+    }else { //if (seasonStartYear <1996)
+        pointsCalculator = this.oldPointsCalculator;
     }
-    
-    throw "Not implemented";
+    return pointsCalculator.GetPointsForResult(goalsScored, goalsLost);
 } 
