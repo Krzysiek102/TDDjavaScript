@@ -27,18 +27,22 @@ NewPointsCalculator.prototype.GetPointsForResult = function  (goalsScored, goals
     }    
 }
 
-function PointsCalculator(){
-    this.newPointsCalculator = new NewPointsCalculator();
-    this.oldPointsCalculator = new OldPointsCalculator();
-};
-
-PointsCalculator.prototype.GetPointsForResult = function(seasonStartYear, goalsScored, goalsLost){    
-    var pointsCalculator;
-    if (seasonStartYear >=1996)
+function CalculatorSelector (){
+    
+}
+CalculatorSelector.prototype.GetCalculator = function  (year){
+    if (year >=1996)
     {
-        pointsCalculator = this.newPointsCalculator; 
+        return new NewPointsCalculator();
     }else { //if (seasonStartYear <1996)
-        pointsCalculator = this.oldPointsCalculator;
+        return new OldPointsCalculator();
     }
+}
+
+function PointsCalculator(){
+    this.calculatorSelector = new CalculatorSelector();
+};
+PointsCalculator.prototype.GetPointsForResult = function(year, goalsScored, goalsLost){    
+    var pointsCalculator = this.calculatorSelector.GetCalculator(year);
     return pointsCalculator.GetPointsForResult(goalsScored, goalsLost);
 } 

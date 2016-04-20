@@ -52,7 +52,7 @@ test('Old points calculator should give 2 points for winning 1:0', function  (){
 })
 
 
-var newPoinstCalculator
+var newPoinstCalculator;
 module('New points calculator', {
     setup: function  (){
         newPoinstCalculator = new NewPointsCalculator();
@@ -63,3 +63,21 @@ test('New points calculator should give 3 points for winning 1:0', function  (){
     var totalAmountOfPoints = newPoinstCalculator.GetPointsForResult(1, 0);
     strictEqual(totalAmountOfPoints, 3);
 })
+
+var calculatorSelector;
+module('Calculator selector',{
+    setup: function  (){
+        calculatorSelector = new CalculatorSelector();
+    }
+});
+
+test('Results in year 2012 should be calculated using new points calculator', function  (){
+    var calculator = calculatorSelector.GetCalculator(2012);
+    ok(calculator instanceof NewPointsCalculator);
+});
+
+
+test('Results in year 1984 should be calculated using old points calculator', function  (){
+    var calculator = calculatorSelector.GetCalculator(1984);
+    ok(calculator instanceof OldPointsCalculator);
+});
