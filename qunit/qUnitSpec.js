@@ -9,33 +9,33 @@ module('Points calculator', {
 });
 
 test('1:0 in year 2012 should give 3 points', function () {
-    var totalAmountOfPoints = pointsCalculator.GetPointsForResult(2012, 1, 0);
-    strictEqual(totalAmountOfPoints, 3);
+    var points = pointsCalculator.GetPointsForResult(2012, 1, 0);
+    strictEqual(points, 3);
 });
 
 test('1:1 in year 2012 should give 1 point', function  (){
-    var totalAmountOfPoints = pointsCalculator.GetPointsForResult(2012, 1, 1);
-    strictEqual(totalAmountOfPoints, 1);    
+    var points = pointsCalculator.GetPointsForResult(2012, 1, 1);
+    strictEqual(points, 1);    
 });
 
 test('0:1 in year 2012 should give 0 points', function  (){
-    var totalAmountOfPoints = pointsCalculator.GetPointsForResult(2012, 0, 1);
-    strictEqual(totalAmountOfPoints, 0);    
+    var points = pointsCalculator.GetPointsForResult(2012, 0, 1);
+    strictEqual(points, 0);    
 });
 
 test('1:0 in year 1984 should give 2 points', function  (){
-    var totalAmountOfPoints = pointsCalculator.GetPointsForResult(1984, 1, 0);
-    strictEqual(totalAmountOfPoints, 2);    
+    var points = pointsCalculator.GetPointsForResult(1984, 1, 0);
+    strictEqual(points, 2);    
 });
 
 test('1:1 in year 1984 should give 1 point', function  (){
-    var totalAmountOfPoints = pointsCalculator.GetPointsForResult(1984, 1, 1);
-    strictEqual(totalAmountOfPoints, 1);    
+    var points = pointsCalculator.GetPointsForResult(1984, 1, 1);
+    strictEqual(points, 1);    
 });
 
 test('0:1 in year 1984 should give 0 points', function  (){
-    var totalAmountOfPoints = pointsCalculator.GetPointsForResult(1984, 0, 1);
-    strictEqual(totalAmountOfPoints, 0);    
+    var points = pointsCalculator.GetPointsForResult(1984, 0, 1);
+    strictEqual(points, 0);    
 });
 
 
@@ -47,8 +47,8 @@ module('Old points calculator', {
 });
 
 test('Old points calculator should give 2 points for winning 1:0', function  (){
-    var totalAmountOfPoints = oldPointsCalculator.GetPointsForResult(1, 0);
-    strictEqual(totalAmountOfPoints, 2);
+    var points = oldPointsCalculator.GetPointsForResult(1, 0);
+    strictEqual(points, 2);
 })
 
 
@@ -60,8 +60,8 @@ module('New points calculator', {
 })
 
 test('New points calculator should give 3 points for winning 1:0', function  (){
-    var totalAmountOfPoints = newPoinstCalculator.GetPointsForResult(1, 0);
-    strictEqual(totalAmountOfPoints, 3);
+    var points = newPoinstCalculator.GetPointsForResult(1, 0);
+    strictEqual(points, 3);
 })
 
 var calculatorSelector;

@@ -9,13 +9,13 @@ describe('Points calculator', function () {
     });
     
     it('should give 3 points for winning 4:0 in 2008', function () {
-        var totalAmountOfPoints = pointsCalculator.GetPointsForResult(2008, 3, 0);
-        expect(totalAmountOfPoints).toBe(3);
+        var points = pointsCalculator.GetPointsForResult(2008, 3, 0);
+        expect(points).toBe(3);
     });
     
     it('should give 2 for winning 4:0 in 1992', function () {
-        var totalAmountOfPoints = pointsCalculator.GetPointsForResult(1992, 3, 0);
-        expect(totalAmountOfPoints).toBe(2);
+        var points = pointsCalculator.GetPointsForResult(1992, 3, 0);
+        expect(points).toBe(2);
     });
     
     it('should give 3 points for winning assuming we use new calculator', function  (){
@@ -24,8 +24,8 @@ describe('Points calculator', function () {
             return new NewPointsCalculator();        
         };
         var pointsCalculator = new PointsCalculator(calculatorSelector);
-        var totalAmountOfPoints = pointsCalculator.GetPointsForResult(undefined, 1, 0);
-        expect(totalAmountOfPoints).toBe(3);
+        var points = pointsCalculator.GetPointsForResult(undefined, 1, 0);
+        expect(points).toBe(3);
     });
 });
 
