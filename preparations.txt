@@ -31,3 +31,7 @@ tsd install mocha --save
 - instalacja chai:
 bower install chai --save-dev
 tsd install chai --save
+
+- instalacja sinon
+bower install sinon#1.17.3 --save-dev
+tsd install sinon --save
