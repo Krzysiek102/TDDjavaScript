@@ -2,6 +2,8 @@
   "name": "TDDjavaScript",
   "devDependencies": {
     "qunit": "^1.23.0",
-    "jasmine-core": "jasmine#^2.4.1"
+    "jasmine-core": "jasmine#^2.4.1",
+    "mocha": "^2.4.5",
+    "chai": "^3.5.0"
   }
 }
