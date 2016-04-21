@@ -39,9 +39,14 @@ CalculatorSelector.prototype.GetCalculator = function  (year){
     }
 }
 
-function PointsCalculator(){
-    this.calculatorSelector = new CalculatorSelector();
+function PointsCalculator(calculatorSelector){
+    if (calculatorSelector === undefined){
+        this.calculatorSelector = new CalculatorSelector();    
+    }else{
+        this.calculatorSelector = calculatorSelector;
+    }
 };
+
 PointsCalculator.prototype.GetPointsForResult = function(year, goalsScored, goalsLost){    
     var pointsCalculator = this.calculatorSelector.GetCalculator(year);
     return pointsCalculator.GetPointsForResult(goalsScored, goalsLost);

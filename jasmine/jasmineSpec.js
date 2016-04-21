@@ -17,6 +17,16 @@ describe('Points calculator', function () {
         var totalAmountOfPoints = pointsCalculator.GetPointsForResult(1992, 3, 0);
         expect(totalAmountOfPoints).toBe(2);
     });
+    
+    it('should give 3 points for winning assuming we use new calculator', function  (){
+        var calculatorSelector = new CalculatorSelector();
+        calculatorSelector.GetCalculator = function(year){
+            return new NewPointsCalculator();        
+        };
+        var pointsCalculator = new PointsCalculator(calculatorSelector);
+        var totalAmountOfPoints = pointsCalculator.GetPointsForResult(undefined, 1, 0);
+        expect(totalAmountOfPoints).toBe(3);
+    });
 });
 
 
