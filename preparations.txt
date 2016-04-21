@@ -18,9 +18,14 @@ tsd init
 
 
 - instalacja qunit:
-bower install -qunit --save-dev
+bower install qunit --save-dev
 tsd install qunit --save
 
 - dodanie referencji do pliku nagłówkowego qunit:
 /// <reference path="../typings/qunit/qunit.d.ts" />
+
+-instalacja jasmie:
+bower install jasmine --save-dev
+tsd install jasmine --save
+- dodanie referencji do pliku nagłówkowego jasmine:
 
