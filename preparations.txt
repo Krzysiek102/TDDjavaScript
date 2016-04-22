@@ -46,4 +46,20 @@ dodanie zmiennej środowiskowej odpowiedniej dla przeglądarki, np:
 - skonfigurowanie karma w projekcie:
  karma init
  
-- uruchomienie testów w karma - karma start
+- uruchomienie testów w karma
+karma start
+
+- instalacja grunt z jasmine
+npm install grunt-cli -g
+npm install grunt@1.0.0 --save-dev
+npm install grunt-contrib-jasmine --save-dev
+
+- uruchomienie testów z grunt
+grunt jasmine
+grunt
+
+- umożliwienie śledzenia plików z grunt
+npm install grunt-contrib-watch --save-dev
+
+- uruchomienie testów w grunt ze śledzeniem
+grunt watch
