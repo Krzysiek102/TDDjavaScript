@@ -35,3 +35,15 @@ tsd install chai --save
 - instalacja sinon
 bower install sinon#1.17.3 --save-dev
 tsd install sinon --save
+
+- instalacja karma:
+npm install karma --save-dev
+
+dodanie zmiennej środowiskowej odpowiedniej dla przeglądarki, np:
+ * CHROME_BIN  z wartością C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+ * FIREFOX_BIN z wartością C:\Program Files (x86)\Mozilla Firefox\firefox.exe
+ 
+- skonfigurowanie karma w projekcie:
+ karma init
+ 
+- uruchomienie testów w karma - karma start

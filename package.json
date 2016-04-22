@@ -1,4 +1,7 @@
 {
   "name": "tddjavascript",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "devDependencies": {
+    "karma": "^0.13.22"
+  }
 }
