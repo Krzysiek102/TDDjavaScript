@@ -13,7 +13,7 @@ describe('Points calculator', function () {
         var calculatorSelector = sinon.stub(new CalculatorSelector());
         calculatorSelector.GetCalculator.returns(new NewPointsCalculator());
         var pointsCalculator = new PointsCalculator(calculatorSelector);
-        var points = pointsCalculator.GetPointsForResult(undefined, 1, 0);
+        var points = pointsCalculator.GetPoints(undefined, 1, 0);
         expect(points).toBe(3);
     });
 });

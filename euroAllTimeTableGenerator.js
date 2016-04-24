@@ -3,7 +3,7 @@
 function OldPointsCalculator(){
     
 };
-OldPointsCalculator.prototype.GetPointsForResult = function  (goalsScored, goalsLost){
+OldPointsCalculator.prototype.GetPoints = function  (goalsScored, goalsLost){
     if (goalsScored > goalsLost){
         return 2;
     }else if (goalsScored === goalsLost){
@@ -16,7 +16,7 @@ OldPointsCalculator.prototype.GetPointsForResult = function  (goalsScored, goals
 function NewPointsCalculator (){
     
 }
-NewPointsCalculator.prototype.GetPointsForResult = function  (goalsScored, goalsLost){
+NewPointsCalculator.prototype.GetPoints = function  (goalsScored, goalsLost){
     if (goalsScored>goalsLost){
         return 3;
     }
@@ -47,7 +47,7 @@ function PointsCalculator(calculatorSelector){
     }
 };
 
-PointsCalculator.prototype.GetPointsForResult = function(year, goalsScored, goalsLost){    
+PointsCalculator.prototype.GetPoints = function(year, goalsScored, goalsLost){    
     var pointsCalculator = this.calculatorSelector.GetCalculator(year);
-    return pointsCalculator.GetPointsForResult(goalsScored, goalsLost);
+    return pointsCalculator.GetPoints(goalsScored, goalsLost);
 } 

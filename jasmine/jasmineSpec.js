@@ -9,12 +9,12 @@ describe('Points calculator', function () {
     });
     
     it('should give 3 points for winning 4:0 in 2008', function () {
-        var points = pointsCalculator.GetPointsForResult(2008, 3, 0);
+        var points = pointsCalculator.GetPoints(2008, 3, 0);
         expect(points).toBe(3);
     });
     
     it('should give 2 for winning 4:0 in 1992', function () {
-        var points = pointsCalculator.GetPointsForResult(1992, 3, 0);
+        var points = pointsCalculator.GetPoints(1992, 3, 0);
         expect(points).toBe(2);
     });
     
@@ -24,7 +24,7 @@ describe('Points calculator', function () {
             return new NewPointsCalculator();        
         };
         var pointsCalculator = new PointsCalculator(calculatorSelector);
-        var points = pointsCalculator.GetPointsForResult(undefined, 1, 0);
+        var points = pointsCalculator.GetPoints(undefined, 1, 0);
         expect(points).toBe(3);
     });
 });
